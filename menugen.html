@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo Menu Minecraft - Stella Tools</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/menugen.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <h1>Stella</h1>
+            </div>
+            <div class="nav-buttons">
+                <a href="https://discord.com/servers/stella-studio-minecraft-894469438009651230" target="_blank" class="nav-btn secondary">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.197.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                    </svg>
+                    Discord
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2>Cấu Hình Menu</h2>
+
+                <div class="format-selector">
+                    <button class="format-btn active" onclick="selectFormat('deluxemenus')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <path d="M9 9h6v6h-6z"/>
+                        </svg>
+                        DeluxeMenus
+                    </button>
+                    <button class="format-btn" onclick="selectFormat('skript')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                        Skript
+                    </button>
+                </div>
+
+                <div class="skript-addon-selector" id="skriptAddonSelector">
+                    <button class="addon-btn active" onclick="selectSkriptAddon('builtin')">GUI Mặc Định</button>
+                    <button class="addon-btn" onclick="selectSkriptAddon('skriptgui')">Skript-GUI</button>
+                    <button class="addon-btn" onclick="selectSkriptAddon('skbee')">skBee</button>
+                    <button class="addon-btn" onclick="selectSkriptAddon('tuske')">TuSKe</button>
+                </div>
+
+                <div class="form-group">
+                    <label for="menuName">Tên Menu</label>
+                    <input type="text" id="menuName" placeholder="menu_cua_toi" value="menu_mau">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="menuTitle">Tiêu Đề Menu</label>
+                        <input type="text" id="menuTitle" placeholder="&6Menu Của Tôi" value="&6Menu Mẫu">
+                    </div>
+                    <div class="form-group">
+                        <label for="menuSize">Kích Thước Menu</label>
+                        <select id="menuSize">
+                            <option value="9">9 (1 hàng)</option>
+                            <option value="18">18 (2 hàng)</option>
+                            <option value="27" selected>27 (3 hàng)</option>
+                            <option value="36">36 (4 hàng)</option>
+                            <option value="45">45 (5 hàng)</option>
+                            <option value="54">54 (6 hàng)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group" id="openCommandGroup">
+                    <label for="openCommand">Lệnh Mở Menu</label>
+                    <input type="text" id="openCommand" placeholder="openmenu" value="menumau">
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion('advanced-settings')">
+                        Cài Đặt Nâng Cao
+                        <span>▼</span>
+                    </div>
+                    <div class="accordion-content" id="advanced-settings">
+                        <div class="form-group" id="permissionGroup">
+                            <label for="permission">Quyền Truy Cập</label>
+                            <input type="text" id="permission" placeholder="menu.example">
+                        </div>
+                        <div class="form-group" id="updateIntervalGroup">
+                            <label for="updateInterval">Thời Gian Cập Nhật (tick)</label>
+                            <input type="number" id="updateInterval" placeholder="20" value="20">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="preview-section">
+                    <h3>Xem Trước Menu</h3>
+                    <div class="preview-grid" id="menuPreview"></div>
+                </div>
+
+                <div class="preview-section">
+                    <h3>Vật Phẩm Trong Menu</h3>
+                    <div class="items-container" id="itemsContainer">
+                        <div class="empty-state">
+                            Nhấp vào lưới xem trước để thêm vật phẩm, hoặc sử dụng nút bên dưới
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button class="secondary" onclick="addMenuItem()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        Thêm Vật Phẩm
+                    </button>
+                    <button onclick="generateCode()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                        Tạo Mã
+                    </button>
+                    <button class="danger" onclick="clearAll()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="m19 6-2 14H7L5 6"></path>
+                            <path d="M10 11v6"></path>
+                            <path d="M14 11v6"></path>
+                        </svg>
+                        Xóa Tất Cả
+                    </button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Mã Đã Tạo</h2>
+                <div class="output-container" id="output">
+                    <div class="format-indicator" id="formatIndicator">DeluxeMenus</div>
+                    <button class="copy-btn" onclick="copyToClipboard()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        Sao Chép
+                    </button>
+                    Nhấp "Tạo Mã" để xem cấu hình của bạn...
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Community. Đây không phải là sản phẩm được Stella tạo ra.</p>
+            <p style="color: var(--accent);">Stella Studio chỉ cải tiến và phát triển thêm từ mẫu để phục vụ cộng đồng</p>
+        </div>
+    </footer>
+
+    <script src="js/menugen.js"></script>
+</body>
+</html>
